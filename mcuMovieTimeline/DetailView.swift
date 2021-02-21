@@ -10,20 +10,28 @@ import SwiftUI
 struct DetailView: View {
     var data: Movie
     var body: some View {
-        VStack {
-            Image(data.image)
-                .resizable()
-                .frame(width: 300, height: 450)
-                .cornerRadius(15)
+        
+        ZStack {
+            
+            Color("bgColor").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Text(data.title)
-                    .font(.system(size: 20))
+                Image(data.image)
+                    .resizable()
+                    .frame(width: 300, height: 450)
+                    .cornerRadius(15)
                 
-                Text(String(data.year))
-                    .font(.system(size: 20))
+                VStack {
+                    Text(data.title)
+                        .foregroundColor(.white)
+                        .font(.system(size: 25, weight: .bold))
+                    
+                    Text(String(data.year))
+                        .foregroundColor(.white)
+                        .font(.system(size: 25, weight: .bold))
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }

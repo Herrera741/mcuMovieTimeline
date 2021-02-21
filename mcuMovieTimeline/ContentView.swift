@@ -2,15 +2,110 @@
 //  ContentView.swift
 //  mcuMovieTimeline
 //
-//  Created by CSUFTitan on 2/21/21.
+//  Created by Sergio Herrera on 2/20/21.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var movies = DataModel.data
+    @State var menu = 0
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        NavigationView {
+            // main screen container
+            VStack {
+                // header title and search button
+                HStack {
+                    Text("MCU Timeline")
+                        .font(.system(size: 35, weight: .bold))
+                        .padding()
+                    
+                    Spacer()
+                    
+                    Button(action: {}) {
+                        Image(systemName: "magnifyingglass")
+                            .scaleEffect(1.3)
+                            .padding()
+                    }
+                    .foregroundColor(.black)
+                }
+                
+                // sort buttons
+                HStack {
+                    Button(action: {
+                        self.menu = 0
+                        movies.sort(by: {$0.id < $1.id})
+                    }) {
+                        Text("Timeline")
+                            .foregroundColor(self.menu == 0 ? .white : .black)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                    }
+                    .background(self.menu == 0 ? Color.red : Color(UIColor.systemGray3))
+                    .clipShape(Capsule())
+                    
+                    Button(action: {
+                        self.menu = 1
+                        movies.sort(by: {$0.year < $1.year})
+                    }) {
+                        Text("Year")
+                            .foregroundColor(self.menu == 1 ? .white : .black)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                    }
+                    .background(self.menu == 1 ? Color.red : Color(UIColor.systemGray3))
+                    .clipShape(Capsule())
+                    
+                    Button(action: {
+                        self.menu = 2
+                        movies.sort(by: {$0.title < $1.title})
+                    }) {
+                        Text("Title")
+                            .foregroundColor(self.menu == 2 ? .white : .black)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                    }
+                    .background(self.menu == 2 ? Color.red : Color(UIColor.systemGray3))
+                    .clipShape(Capsule())
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Movies")
+                        .font(.system(size: 25, weight: .bold))
+                        .padding(.top, 15)
+                        .padding(.leading, 18)
+                    
+                    // body section with list of movies
+                    List(movies, id: \.self) { movie in
+                        
+                        NavigationLink(destination: DetailView(data: movie)) {
+                            HStack {
+                                Image(movie.image)
+                                    .resizable()
+                                    .frame(width: 50, height: 75)
+                                    .cornerRadius(5)
+                                
+                                VStack(alignment: .leading) {
+                                    Text(movie.title)
+                                        .foregroundColor(.black)
+
+                                    
+                                    Text(String(movie.year))
+                                        .foregroundColor(.black)
+                                }
+                            }
+                        }
+                    }
+                    // remove gray space around list
+                    .listStyle(PlainListStyle())
+                }
+                
+            }
+            .navigationBarHidden(true)
+        }
     }
 }
 

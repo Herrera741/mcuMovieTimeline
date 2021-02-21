@@ -24,14 +24,15 @@ struct DetailView: View {
                 VStack {
                     Text(data.title)
                         .foregroundColor(.white)
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 20, weight: .bold))
+                        .lineLimit(2)
                     
                     Text(String(data.year))
                         .foregroundColor(.white)
-                        .font(.system(size: 25, weight: .bold))
+                        .font(.system(size: 22, weight: .bold))
                 }
-                .padding()
             }
+            .padding(.bottom, 45)
         }
     }
 }

@@ -27,7 +27,7 @@ struct ContentView: View {
                         Text("MCU Timeline")
                             .italic()
                             .font(.system(size: 35, weight: .heavy))
-                            .foregroundColor(.white)
+                            .foregroundColor(.yellow)
                             .padding()
                             .shadow(color: .black, radius: 3, x: 3, y: 3)
                         
@@ -52,7 +52,7 @@ struct ContentView: View {
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 20)
                         }
-                        .background(self.menu == 0 ? Color("imRed") : Color("imYellow"))
+                        .background(self.menu == 0 ? Color("imRed") : Color("metallic"))
                         .clipShape(Capsule())
                         
                         Button(action: {
@@ -64,7 +64,7 @@ struct ContentView: View {
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 20)
                         }
-                        .background(self.menu == 1 ? Color("imRed") : Color("imYellow"))
+                        .background(self.menu == 1 ? Color("imRed") : Color("metallic"))
                         .clipShape(Capsule())
                         
                         Button(action: {
@@ -76,7 +76,7 @@ struct ContentView: View {
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 20)
                         }
-                        .background(self.menu == 2 ? Color("imRed") : Color("imYellow"))
+                        .background(self.menu == 2 ? Color("imRed") : Color("metallic"))
                         .clipShape(Capsule())
                     }
                     
@@ -100,6 +100,7 @@ struct ContentView: View {
                                     VStack(alignment: .leading) {
                                         Text(movie.title)
                                             .foregroundColor(.black)
+                                            .lineLimit(1)
 
                                         
                                         Text(String(movie.year))

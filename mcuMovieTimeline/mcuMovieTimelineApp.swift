@@ -2,7 +2,7 @@
 //  mcuMovieTimelineApp.swift
 //  mcuMovieTimeline
 //
-//  Created by CSUFTitan on 2/21/21.
+//  Created by Sergio Herrera on 2/21/21.
 //
 
 import SwiftUI

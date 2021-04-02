@@ -41,6 +41,8 @@ Reasons for Creating this App:
 
 Below is a demo of the several sorting options to view the list of movies. Movies can be sorted by timeline according to Marvel Cinematic Universe chronology, release year, or title.
 
+![MCU Movie Timeline App Demo](/demo.gif)
+
 
 <!-- CONTACT -->
 ## Contact

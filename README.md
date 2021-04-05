@@ -24,9 +24,9 @@
 The Marvel Cinematic Universe currently has many shows and movies out that may be a little hard to keep track of. I developed this app to list the current MCU movies with options to sort by title, year and most importantly, timeline according to the MCU chronology.
 
 Reasons for Creating this App:
-* Wanted to show my nephews the MCU timeline order
-* Curious to play with SwiftUI framework
-* Dive into implementation of UI stacks in Swift
+* Easy reference for MCU movie timeline
+* Wanted to try new SwiftUI framework
+* Improve layout skills using stacks in Swift
 
 <!-- BUILT WITH -->
 ### Built With
